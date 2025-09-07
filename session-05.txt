@@ -35,7 +35,7 @@ ssh-keygen -f sivakumar
 6. admin keeps Hari public key here.
 7. now Hari should be able to login
 
-edit vi /etc/sudoers no password and 
+edit vi /etc/ssh/sshd_config    -- no password  
 
 port is like flat number
 
