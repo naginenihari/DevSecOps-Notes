@@ -50,7 +50,7 @@ primary group and secondary group
 
 groupadd devops --> devops group will be created
 
-usermod -g devops suresh
-usermod -aG testers suresh
+usermod -g devops suresh-- primary group adding
+usermod -aG testers suresh --secondary group adding
 
 passwd <user-name>

@@ -53,3 +53,4 @@ find <where to search> -name <file-name>
 
 vim --> visually improved
 
+sed --search and print the mentioned lines

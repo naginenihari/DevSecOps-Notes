@@ -22,7 +22,7 @@ serve --> lawyer serves to us, we are his client
 
 facebook is in Linux server, if problem comes we need to login to server..
 
-https://www.joindevops.com
+https://www.safety.drugdev.com
 
 Protocol: https
 Port: 443
