@@ -1,4 +1,0 @@
-make sure eks allows jenkins-agent
-configure cluster
-create namespace
-install DB applications

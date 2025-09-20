@@ -1,88 +1,136 @@
-1. time
-2. human errors
+Why Scripting?
 
-100 logs carry from farm to home
+Automation goals: Speed and Accuracy
 
-all commands keep it in file, run it as a file(Coding)
+1. Speed
+2. Accuracy, no human errors
+3. Consistency
+4. Scalability, can work for infinite number of servers
+5. Documentaion. What happened including history
+6. Reusability.
 
-if I run a command --> I have common sense, I can understand whether it is success or not...
+Where to store scripts?
 
-variables
-data types
-functions
-conditions
-loops
-error handling
+1. Security
+2. Can't share with others
+3. Version control.
 
-90% design + 10% coding
+Repositories/Version Control System
 
-Coding
-1. programming --> developers. data strcuture, alogorithms, design patterns
-				   less resources(RAM, CPU, HD), less time
-2. scripting --> DevOps. simple scripting
+Centralised vs Decentralised/Distributed
+========================================
+Centralised capital
 
-shell vs python
-===============
-UI --> Shell/CMD --> Kernel
-UI --> Python --> Shell/CMD --> Kernel
+1. Single point of failure
+2. Pollution
+3. Over crowd
+4. Social unrest
+5. Resources shortage
 
-shell is native in Linux. If you want any automation inside linux server, shell is the perfect choice.
-python is useful when you are interacting with other/external systems.
+Mumbai -> Movies and financial, transporation
+Chenai -> Manfacturing
+Bangalore -> IT
+Kolkata -> Manfacturing
 
-keep code in version control/source code management(SCM)
+SVN -> Sub version control
 
-1. security
-2. tough to share the code
-3. no versions
+Central Library
+=================
+1. What if library is closed on holidays?
+2. What if library building collapsed?
+3. Crowd and their facilities
 
-Centralised vs Distributed
-====================
-google drive --> 10 members
-open google docs in browser, do the change
+LMS
+=====
+local libraries
 
-donwload the doc in local laptop, open in word do the changes then upload to drive
+1. they can rent books to us
 
-SVN vs Git(GitHub, Gitlab, Bitbucket, etc.)
+Git is a concept -> Linus Torwalds
 
-IDE(Integrated development env) --> vscode, eclipse, intellij, sublime, etc.
+GitHub -> All opensource products code is here
+Bitbucket
+Gitlab
 
-1. create repo in github
-2. clone/download the repo
-3. add to staging/temp area.
-4. commit
-5. push changes
 
-git add . ; git commit -m "message"; git push origin main
-. means all the changes
+git clone <repo-url> -> code will be downloaded into our laptop
 
-sh <script-name>
-#!/bin/bash --> shebang, it should be the first line in shell script, it is the interpeter to check the syntax and execute the commands..
+normal folder vs git repo
+
+git repo will have .git as hidden directory
+
+branching -> create another duplicate copy, do the changes the here and then take the approval from colleagues and team member, test them as well. if everything is fine then merge with main branch
+
+IDE tool -> Integrated development environment
+
+Eclipse
+IntelliJ
+Vs code
+sublime editor
+notepad++
+Textpad
+
+vscode -> workspace -> staging area -> commit to local repo -> central repo
+
+20 files -> 10 files completed changes, 10 files middle
+
+what is staging area?
+it is a temp area. where we can stage the required files for commit..still we have a chance to take back into workspace..
+
+what is local commit?
+commit into local repository nothing but laptop. commit time will be logged, who commited will be logged, why they commited also will be logged
+
+push to central/remote repo?
+
+push to central repo..others can just run git pull(pull the changes from central to local repo)
+
+git clone vs git pull
+=====================
+clone -> first time downloading the code
+pull -> just pull the changes
+
+staging area -> git add <file-name>
+local commit -> git commit -m "first commit, hello world started"
+push to central repo -> git push origin main
+
+1. signup to github
+2. install vs code
+3. open folder in vs code where you store all repos
+create repo in github
+4. clone the repo
+5. do something
+6. add to staging area
+7. commit to local repo
+8. push to central repo
+
+#!/bin/bash -> Shebang
+
+it should be the first line in shell script, it is the interpret to check the syntax of the script and execute them
+
+k shell, c shell, z shell, etc.
+
+bash shell
 
 sh == bash
 
-x=0, y=1, z=3
-solve the expression and finally substitute variables
+file extension -> .sh
 
-label --> item
-key=value
+git add . -> all changes will be staged.
 
-variable is a container to hold the value, you can use it wherever you require. and this centralised, if you change at once place it will reflect wherever you use. DRY (Don't repeat yourself)
+git add . ; git commit -m "some message"; git push origin main
 
-args/arguments
+Don't do or edit anything inside server.
 
-sh 04-variables.sh value1 value2
-$1=value1
-$2=value2
+Let x=0, y=1 -> variables
+derive the formula
+final substitute
 
-Data Types
-=================
-int i=0
-float
-double
-decimal
-string
-char
-boolean
-array arraylist set map
+variable is a container that holds something/value.
 
-$NAME == ${NAME}
+DRY -> don't repeat yourself
+Reusability
+Flexibilty -> prevents accidental edits
+Readability -> 
+Maintanance
+
+VAR_NAME=VALUE

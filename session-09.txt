@@ -1,88 +1,167 @@
-MySQL
+Database
+=========
+Installed database server
+started
+enabled
+set the root password
+
+mysql -> go to mysql cmd line
+show databases;
+use <database-name>;
+show tables;
+select * from <table-name>;
+
+Backend
+=========
+install programming run time -> nodejs/java/python
+
+created one system user
+create one directory
+downloaded the code
+installed dependencies
+created systemctl service
+make sure you provide dependencies like DB_URL
+systemctl daemon-reload
+systemctl started
+
+connect to DB
+run the scripts provided by developer
+	create a schema called transactions
+	use transactions
+	create table
+	create one user
+	provide access to that use to transactions schema
+
+then restart backend
+
+systemctl status
+ps -ef | grep service name
+netstat -lntp
+telnet DB_IP <port-no>
+
+frontend
+===========
+installed nginx as http/web server
+started and enabled
+/usr/share/nginx/html -> default location nginx search for HTML content
+/etc/nginx
+
+removed default website
+downloaded our frontend website
+configured a proxy to connect with backend
+restarted
+
+telnet backend_IP 8080
+
+
+[Unit]
+Description = Backend Service
+
+[Service]
+User=expense
+Environment=DB_HOST="mysql.daws86s.fun"
+ExecStart=/bin/node /app/index.js
+SyslogIdentifier=backend
+
+[Install]
+WantedBy=multi-user.target
+
+
+DNS -> domain name system
+
+humans remember names, computer works on numbers
+
+phonebook -> 
+name == number
+telephone directory
+name == number
+
+DNS resolver -> a simple software running in ISP servers to fetch the IP address for a domain
+
+English -> Oxford
+
+ICANN -> Internet corporation for assigned names and numbers -> Non profit organisation
+
+TLD -> Top level domain
+
+.com .in .org .net .io .edu .us .uk .shop .ai
+
+.in -> GOV of India
+.us .uk
+.ai 
+Tuvalu -> tv
+.tv -> Gov of Tuvalu
+
+What happens when you buy a domain?
+
+daws86s.online
+I will pay to godaddy/hostinger to purchase this domain
+	name, contact details, addres, etc.
+	
+.online -> Who owns it
+
+domain registars == godaddy/hostinger
+TLD pays commission to godaddy
+
+if you want to keep that domain -> godaddy
+temp purpose -> hostinger
+
+Nameservers update to TLD
+
+Domain ownership belongs .fun TLD
+Domain manage/authorised person is hostinger
+
+I want to shift domain authority to AWS. Why?
+
+daws86s.fun -> frontend public IP
+
+change in nameservers
+
+update these to .fun TLD
+
+Type of records
+===============
+A -> IpV4 address
+CNAME --> Another domain
+MX -> Mail servers
+TXT -> Domain verrification purpose
+AAAA -> IpV6
+NS -> Nameservers, who is controlling the domain
+SOA -> Who is controlling
+
+
+mysql.daws86s.fun -> MySQL private IP
+
+TTL -> Time to live (Controls how much your cache keeps this record, before issuing next request)
+
+High TTL -> DNS overload decreases. stable websites will have high TTL
+Low TTL -> migration activities. decrease TTL 
+
+daws86s.fun
+
+Nginx
 =======
-table and column database --> RDBMS
+1. http/web server
+2. reverse proxy
+3. load balancer
 
-Linux Server --> MySQL server
+proxy == on behalf of someone
 
-House --> Linux Server
-Room --> DB server
-Rac --> Schema --> tables
-1DB server may have 1 or many
-transactions, users, 
+forward proxy
+==============
+on behalf of client
 
+mobile -> Hotstar
 
-telnet mysql.daws84s.site 3306 --> checks whether mysql is allowing connections to it on port 3306
+Internet exchange points -> block the websites here
 
-/etc/nginx/nginx.conf
+Mobile -> VPN(US) -> facebook.com and get the response to VPN --> Mobile
 
-prime --> server, vpn is client for prime
-client --> mobile
+hiding the client identity
+access restrictions
+traffic filter
 
-we are hiding client identity --> forward proxy
-actual client --> forward proxy --> server
-
-1. content filtering
-2. traffic monitoring
-3. anonymous client
-4. geo restrictions bypass
-5. caching
-
-Reverse proxy
-----------------
-Nginx can be used as load balancer, reverse proxy server, web server
-
-1. client is not aware of server identity
-2. security
-3. load balancing
-4. SSL termination
-
-Frontend --> Backend
-
-telnet backend.daws84s.site 8080
-login to backend and check systemctl status backend
-check logs /var/log
-
-http://daws84s.site/api/transaction
-
-HTTP Status codes
--------------------
-1XX --> information
-2XX --> success
-3XX --> redirection
-
-errors
----------
-4XX --> client side error
-5XX --> server side error
-
-CRUD
-=======
-INSERT
-SELECT
-UPDATE
-DELETE
-
-
-reports --> daily, weekly, monthly, quarterly
-bank-records
-user
-notifications
-ai/ml
-
-saas
-
-configuring server
--------------------------
-Linux server creation
-programming language installation includes build tool
-create one dedicated directory for our application /app
-create one system user for our application roboshop
-download the code into our directory
-install dependencies
-create systemctl service
-if required load data
-start the service
-
-telnet mysql.daws84s.site 3306 --> connected
-user password problem
-query problem
+reverse proxy
+=============
+on behalf of server
+hiding the server identity -> security

@@ -1,71 +1,119 @@
-we have our own AMI
-devops-practice, ec2-user DevOps321
-not keybased, this is password based
+ps -ef -> list all the process running
+top -> it will display live process with cpu and ram
 
-AMI --> Amazon machine image
+kill PID -> request to terminate
+kill -9 PID -> order to terminate
 
-image --> we and our surroundings
+netstat -lntp -> shows the ports openend and PID
 
-AMI --> base os --> redhat 9 + nginx + applications + packages --> take it as an image
+Database -> Application -> Web -> Load Balancer -> User
 
-pre configured OS with some packages
+CRUD
+======
+1. Create operation
+2. Read operation
+3. Update operation
+4. Delete operation
 
-public ip vs private ip
+amazon.in
 
-192.168.1.102 --> private
-103.149.59.114 --> public
+devops-practice -> AMI(Amazon Machine image)
 
-Linux is physical server... nginx is virtual server running in linux server
+What is image == image is everything around us
+Image = OS + Some required softwares
 
-yum install nginx -y
+Linux is OS or Kernel?
+=======================
+Linus Torwalds -> Linux and Git
 
-dnf install nginx -y
+Mac -> Hardware + MacOS
+Dell -> Hardware + OS(Optional) -> we have freedom to install any OS
 
-dnf is the advanced version of yum, there are modules in dnf
+dominating OS for servers was Unix
+Unix -> Hardware+UnixOS
 
-apt-get install nginx -y
+He completely developed a Kernel from the scratch using C language. 
 
-/etc/nginx/nginx.conf --> configurations. you must restart the service when there are some config changes
+Kernel = a component that connects with Hardware
+OS = Kernel + some utilities or applications for user
 
-root /usr/share/nginx/html
+Centos, Fedora, Ubuntu, Android, Oracle Suse, Redhat
 
-http://44.201.38.173:80
+Redhat Family
+==============
+Opensource vs Enterprise
 
-index.html --> default html
+Opensource -> free and community driven. we need to wait for fix
+Enterprise -> We pay money for support. if there are defects immidiately we get help
 
-godaddy --> domain registar, almost 1000 every year
-hostinger --> cheapest domains for 1st year, for every renewal it is costly
+Enterprise = Opensource + Support
 
-joindevops --> 62819 37079
-word = meaning
+Redhat = Kernel + Application Utilities + Support
 
-key --> value
+Amazon Linux == Redhat == Centos == Fedora == Almalinux
 
-computers only understand 0 and 1.. usually these binaries will be converted to decimal
+devops-practice = RHEL based
 
-facebook --> 143.234.53.98
+username=ec2-user 
+Password=DevOps321
 
-Domain Name system
+34.228.199.227
 
-DNS resolver is the component in ISP that is responsible to provide IP address.
+ssh ec2-user@34.228.199.227
 
-DNS resolver contacts root servers
+A -> B -> C -> D -> E
 
-facebook.com --> TLD .com is TLD
-daws84s.site --> TLD is .site
+A -> Z -> Y -> C -> D -> E
 
-.in, .io, .org, .net, .edu, .gov, .co, .ai, .shop, .pizza, .space, .online
+Database
+==============
+Database Server -> it is physical server
+Server == Box == Node
 
-.siva can be registered as TLD. godaddy, hostinger, etc are domain sellers..
+database server software should be installed
 
-A --> IP address
-CNAM --> points to another domain
-MX --> mail records
-TXT --> domain verifications
-NS --> who is managing this domain now
+RDBMS -> relational database management system
+Excel -> Rows and Columns = Sheets
+RDBMS = Rows and Columns = Tables
 
-domain registar responsibility to updat the details to TLD
+There is a relation between tables
 
-Nameservers
+MySQL, MSSQL Admin, Oracle Admin,
+3306 -> MySQL port number
 
-TTL -> time to live
+default admin username == root
+password needs to setup
+
+mysql_secure_installation --set-root-pass ExpenseApp@1
+
+IP, port, protocol, username and password/key
+
+https
+IP/facebook.com
+username
+password
+443
+
+mysql  -u root -p<password>
+
+-p<password> -> nospace between p and password
+
+mysql -u root -pExpenseApp@1
+
+Database Linux Server -> Database Server Installation -> Schema/databases -> tables -> Data
+
+Application Tier
+================
+dnf module disable nodejs -y -> Disabling default nodejs version
+dnf module enable nodejs:20 -y -> enable especially node js 20
+
+dnf install nodejs -y
+
+dnf is the next version of yum
+
+useradd expense
+system users or service accounts -> non human users
+
+mkdir /app
+
+

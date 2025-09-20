@@ -1,87 +1,99 @@
-google.com --> browser cache --> OS --> OS Cache --> ISP DNS resolver --> root servers --> TLD info --> .com TLD --> name servers --> A record
+49.204.160.153 
 
-name servers --> who are managing that domain now
-domain registar --> a mediator to sell the domain, they have default name servers
+How internet works?
+What is public IP and private IP?
 
-create hosted zone in AWS, get the NS records and update in domain provider
-TTL --> time to live is DNS cache before issuing next DNS request
+Wireless vs Wire
+================
+Wire is more speed
 
-A --> IpV4
-CNAME --> points to another domain
-MX --> mail records
-TXT --> domain verification
-NS --> Nameservers
-AAAA -> Ipv6
+Chennai -> Guntur -> Vijayawada-> -> Vizag -> Kolkata
 
-750 hours --> t2.micro or t3.micro
-31 days
+low speed and more time
 
-1 instance --> 1month
-2 instance --> 15 days
-11 instances --> 3 days
+non human user which will not have any password is called system/service user..
 
-mobaxterm
+curl -o /tmp/backend.zip https://expense-builds.s3.us-east-1.amazonaws.com/expense-backend-v2.zip
 
-sudo set-prompt frontend
+dependencies or libraries
+==========================
+nodejs -> package.json == build file --> here dependencies will be mentioned by developers, our application will work if we have these dependencies and project name, description, etc.
+java -> pom.xml
+python -> requirements.txt
+.NET -> .sln
+go -> build.go
 
-MySQL/Oracle/Postgress/MSSQL --> RDBMS --> tables and columns, primary keys and foreign keys
-
-MongoDB --> NoSQL --> documents
-
-{
-	"name": "sivakumar",
-	"email": "info@joindevops.com"
-}
-
-127.0.0.1 == localhost
-
-system/service user --> non human users which will not have login, intented to run applications
-
-we will create one folder and download our code there
+npm install -> node package manager -> it expects package.json in the current folder.
 
 dnf install nginx
-dnf install mongodb-org
+systemctl start nginx
 
-dnf install catalogue --> can't
+if custom application, then how to start/stop/restart
 
-/app --> this directory to have catalogue code
+we can create systemctl services for custom applications
 
-I can keep /app as home directory to systemuser
+/etc/systemd/system/<preferred-name>.service
 
-nginx:x:991:990:Nginx web server:/var/lib/nginx:/sbin/nologin
-
-/etc/shadow --> encrypted password here
-
-roboshop user --> home dir /app and nologin
-
-useradd --system --home /app --shell /sbin/nologin --comment "roboshop system user" roboshop
-
-Java/NodeJS/Python
-
-java script --> .js
-java --> .java
-python --> .py
-go --> .go
-
-every programming have dependencies or libraries
-
-build tool -> compile(syntax check), download the dependencies, ready to run
-build file
-
-nodejs --> npm(node package manager)
-build file --> package.json
-
-npm install --> it search for package.json in the current directory
-
-you install programming language
-create one directory
-create one user
-downlod the code
-install dependencies
-
-we need to create systemctl file --> starting, stopping, restarting, enable/disable are easy
-
-/etc/systemd/system --> create .service file, catalogue.service file
+How to start the application, DB configuration details also will be provided
 
 
+[Unit]
+Description = Backend Service
 
+[Service]
+User=expense
+Environment=DB_HOST="<MYSQL-SERVER-IPADDRESS>"
+ExecStart=/bin/node /app/index.js
+SyslogIdentifier=backend
+
+[Install]
+WantedBy=multi-user.target
+
+/etc/systemd/system/<preferred-name>.service
+
+/etc/systemd/system/backend.service
+
+systemctl start backend
+systemctl enable backend
+systemctl status backend
+
+
+systemctl daemon-reload
+
+how much money?
+why you spent?
+
+mysql -h 172.31.30.95 -uroot -pExpenseApp@1 < /app/schema/backend.sql
+
+backend applications mostly uses port no 8080
+
+install programming language
+created one directory
+downloaded code
+installed dependencies
+created systemctl service to start/stop/restart
+then make sure DB connections, schemas, tables exsits
+
+backend -> Database
+
+telnet <IP> <port>
+
+login to backend server
+
+telnet 172.31.30.95 3306
+
+nginx -> famous webserver and reverse proxy
+===========================================
+
+/usr/share/nginx/html -> default directory where you keep frontend code
+/etc/nginx -> nginx configuration
+
+systemctl start nginx
+
+vim /etc/nginx/default.d/expense.conf
+
+/etc/nginx
+
+
+
+http://54.88.122.243/api/transaction

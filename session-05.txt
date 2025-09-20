@@ -1,70 +1,85 @@
-permissions
-==============
-R -> 4
-W -> 2
-X -> 1
--			rw-		r--		r--
-file/		user/   group	others
-			owner
-directory     u       g       o
+File Ownership
+================
+chmod -> either the owner of the file or root
+chown <user>:<group> file/folder --> not even owner can change the ownership, only root user
 
-ec2-user ec2-user
-user		group
+chown -R -> recursive. all files and folders inside
 
-chmod ugo+w devops.txt
-chmod 700 devops.txt
+How a user can login with keys
+==============================
+/home/suresh/.ssh
+authorized_keys -> suresh public key
 
-only owner/root user can change the permissions
+ssh -i suresh suresh@IP
 
-chown <user>:<group> devops.txt
+An employee should generate keys..
 
-file ownership can only be modified by root user
-/etc/ssh/sshd_config
+ssh-keygen -f ramesh
+ramesh.pub
+ramesh -> private key
 
-how can you give key based access to linux user?
+sivakumar should send his public key to admins
 
-ssh-keygen -f sivakumar
+1. useradd sivakumar
+2. admin should create .ssh folder in /home/sivakumar
+3. permissions should be 700 for .ssh means only owner has full access
+4. .ssh ownership should be only sivakumar including group
+5. create authorized_keys inside .ssh with max permissions 600 and again ownership should be sivakumar
+6. keep the public file from sivakumar inside authorized_keys
 
-65,536 ports 0-65,535
+ssh -i sivakumar sivakumar@3.87.244.153
 
-1. create user--Hari
-2. Hari can send his public key to admin user
-3. /home/Hari admin creates .ssh in /home/Hari folder
-4. Hari is the only owner to this folder... 700
-5. create a file called authorized_keys with max access 600
-6. admin keeps Hari public key here.
-7. now Hari should be able to login
+/etc/sudoers -> sudoers information
+vimsudo -> edit safely with syntax checks
 
-edit vi /etc/ssh/sshd_config    -- no password  
+How to give sudo access to user?
 
-port is like flat number
+add him to wheel group and then modify /etc/sudoers wheel group without password
 
-ssh -i <key> ec2-user@IP
+usermod -aG wheel sivakumar
+/etc/sudoers ->
 
-/etc/sudoers --> you can do changes to provide root access
-or add user to wheel group without password
+how many ports in a computer -> 0 - 65,535
 
-package management
-====================
-package manager connects to internet windows website. downloads them and install them
+Delhi -> HYD courier
 
-apt-get
-yum/dnf
+gandhi apartments, ameerpeta, hyd, 500082
+102
 
-dnf install <package-name>
+https://facebook.com -> facebook web application
+username and password we can able to see our home feed
+
+protocol -> https (443)
+IP
+
+Package management
+===================
+package managers
+
+dnf is the command to install/remove the packages from server
+previously called as yum
+
+RHEL => dnf install <package-name>
+Ubuntu => apt-get install <package-name>
+
 /etc/yum.repos.d
 
-service management
-===================
-systemctl start <service-name>
-systemctl stop <service-name>
-systemctl status <service-name>
-systemctl restart <service-name>
-systemctl enable <service-name>
-systemctl disable <service-name>
+dnf list installed -> already installed in server
+dnf list available -> not installed but available in web repos
 
-install nginx and start it
+install remove update info
 
-protocol, port, ip, username and password
+Service Management
+==================
+nginx -> http web server
+systemctl start nginx
+systemctl status nginx
 
-http		80  <IP>
+http://3.87.244.153:80
+
+systemctl stop nginx
+systemctl restart nginx
+
+systemctl enable nginx -> whenever system restarted automatically this nginx will run
+systemctl disable nginx
+

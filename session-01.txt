@@ -1,159 +1,150 @@
-https://github.com/daws-86s
-
-What is DevOps?
-
 SDLC
-Waterfall vs Agile vs DevOps vs DevSecOps vs AiOps
+======
+Software Development Lifecycle
 
-SDLC
--------
-Requirements analysis
-Planning
-Design --> General requirements to technical requirements
+Business Analyst
+
+Business
+Requirements gathering
+Planning and Designing
 Implementation
 Deployment
 Testing
-Maintaince
+Release into public
 
-SMS --> School management system
-Examination system
+Maintanance
 
-Stakeholders
-=============
-Parents
-Students
-Teachers
-
-50 years back
-
-Gurukuls --> waterfall(legacy model)
-------------
-year end exam
-pass percentage --> 40%
-
-DAY-1
-Students --> Not serious
-Teachers --> Not serious
-Parents --> Yes
-
-More exams --> process change
-
-UNIT-TEST - I, II, III, Quarterly, IV, Half yearly, grand test
-
-DAY-30
-=======
-students --> No
-teachers --> serious
-parents --> serious
-
-pass/fail
-
-25, 30, 35, 50, 70
-
-90%
-
-slip test --> daily test
-========================
-99%
-
-students --> serious
-teachers --> serious
-parents --> serious
-
-clients
-developers
-testers
-operations
-end users
-
-waterfall
+Waterfall
 ===========
-once requirements are fixed we can't change
-2 years project to go for PROD
+School Management System
 
-last 1 year
-last 1 month deploy --> 100 defects
-20 invalid defects --> 
+Stakeholders --> Who is part of the system
 
-process change --> Agile
+Teachers Students Parents Staff(Principal) Investors and Management Government
 
-item --> 1 test --> 2 defects
-1000 test --> 3 defects
+Grand Final
+100 years
+
+Students -> they don't read from DAY-1
+Teachers -> they don't teach from DAY-1
+Parents -> They worry from DAY-1
+
+20-30%
+why 70% failed
+
+Problems
+=========
+1. only exam time. scared about exam
+2. teachers wont ask to study seriously
+
+Changes
+==========
+UNIT Tests - I, II, III, IV
+Quarterly, Half yearly, Pre-Final
+
+20-30%
+
+II --> 30-35%
+
+80%
+
+Changes
+=========
+Slip/Daily tests
+
+365 days
+200 days
+150 slip tests
+
+95%
+
+Gurukul -> Waterfall
+Unit test --> Agile
+Daily Tests -> DevOps
+
+Waterfall
+=========
+2 years --> 100cr
+
+requirements
+1 year
+
+development, testing
+
+6 months
+after 6 months testing
+
+100 defects --> 10 invalid defects
+
+Ferrari -> Maruti 800
 
 Agile
-===========
-Final product --> multiple modules --> sprints
+=========
+Sprint basis
 
-login and signup --> sprint-1 --> 30 days
-orders
-menu
-payment
-shipping
-cart
-reviews
-employees
+Signup Login
+Product management
+Order management
+Shipping and delivery
+Payment
+Reviews
 
-sprint-1
-----------
-clients UAT(user acceptance testing)
-
-daily standups --> 
-
-95% --> 5 defects, 1 invalid defect
-
-sprint-2 --> orders + 4 defects
-
-15 days 15 days testing and deployment
-
-Process change --> Agile with DevOps
-=========================
-
+SPRINT-1
+========
 Signup and Login
-==================
 
-DAY-1 --> enter first name, enter last name, enter DOB
+1 month
 
-deploy on the same day, test on the same day
-10 defects --> 1 invalid defect
+15 days development
+15 days testing and deployment
 
-DevOps is the process of building, deploying and testing the code written by developer on the same day instead of doing after complete development.. we can acheive this using continous integration, continous deployment, continous delivery and continous testing. 
-We can do faster releases with less defect using DevOps... basically automation mindset to get the best results
+10 -> 2 invalid defects
 
-DEV, QA, SIT, UAT, PERF, PRE-PROD, PROD
+development and testing is improved
 
-min 2, max any number
+Ferrari --> Honda City
 
-Linux --> Linus torvalds
-=================
-UNIX --> Hardware and Software(Unix OS) together
-CPU, RAM, Hard Disk, OS(Software)
-Laptop --> IBM BIOS
+SPRINT-2
+========
+Product management
+Backlog and bug fixing
 
-Linux --> from the sratch using C language based on unix principles. He invented git to store this
+Final product
 
-windows
------------
-not open source
-costly
-not secure must install anti virus
-slow
-too many graphics
-frequent restarts
-tough to update/upgrade
+DevOps
+=======
+Development --> DEV and SIT Deploy(Build and Release) --> Testing
 
-Linux --> 9MB
-Secure
-high speed --> mostly text
-no need of restarts
-install or update packages is easy
-free, community support
-low resources
+Whatever the code developed by developer should be tested and deployed on the same days
 
-AWS Accounts
-================
-Debit/Credit cards
-International usage should be ON
+Signup form
+===========
+Enter your firstname
+Enter your lastname
 
-free trail
+2 defects -> 1 invalid defects
+
+DevOps is the process developing, building, deploying and testing on the same day, that can improve co-ordination between all the teams. We use multiple DevOps tools to acheive this. Configuration management, CICD, etc.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

@@ -1,91 +1,75 @@
-mongodb
-catalogue
-frontend
+Roboshop e-commerce project
+============================
 
-redis
-user
-cart
+Database
+App/Backend tier
+Frontend
 
-mysql
-shipping
+MySQL -> RDBMS tables and columns. strict format
 
-rabbitmq
-payment
-dispatch
+Product -> name, description, vendor data, faq, reviews, ratings, price, discount, emi options, etc.
 
-2XX --> Success
-4XX --> client side errors
-5XX --> server side errors
-1XX --> informational
-3XX --> redirectional
+data is in documents format, access is little fast compare to SQL
+MongoDB is popular NoSQL database. 
+key -> value
 
-HTTP Methods --> GET, POST, PUT, DELETE, OPTIONS
+{
+	"name": "some food",
+	"price": "123INR",
+	"description": "food products daily consumable",
+	"expiry": "01-01-2026"
+}
 
-Nouns and Verbs
+{
+	"name": "a toy",
+	"price": "123INR",
+	"description": "food products daily consumable",
+	"subscription": "yes, montly"
+}
 
-CRUD --> Create Read Update Delete
+/etc/yum.repos.d/
 
-User --> Noun, Create User --> Verbs
+MongoDB -> 27017
 
-http://daws84s.site/user and method GET --> getUser  --> readuser
-http://daws84s.site/user and method POST --> CreateUser
-http://daws84s.site/user and method PUT --> updateUser
-http://daws84s.site/user and method DELETE --> deleteUser
+127.0.0.1:27017 -> only localhost
+0.0.0.0
 
-http://daws84s.site/order and method POST
+useradd --system --home /app --shell /sbin/nologin --comment "roboshop system user" roboshop
 
-http://daws84s.site/orders and method GET
+/etc/systemd/system/catalogue.service
 
-http://daws84s.site/orders/O654S5HG and method GET
+[Unit]
+Description = Catalogue Service
 
-http://daws84s.site/api/catalogue/categories --> http://catalogue.daws84s.site/categories
-http://daws84s.site/api/catalogue/products/Artificial%20Intelligence
+[Service]
+User=roboshop
+Environment=MONGO=true
+// highlight-start
+Environment=MONGO_URL="mongodb://<MONGODB-SERVER-IPADDRESS>:27017/catalogue"
+// highlight-end
+ExecStart=/bin/node /app/server.js
+SyslogIdentifier=catalogue
 
-http://localhost:8080/products/Artificial%20Intelligence
+[Install]
+WantedBy=multi-user.target
 
-http://daws84s.site/api/catalogue/product/Ewooid
 
-http://localhost:8080/product/Ewooid
+http://daws86s.fun/api/catalogue/products/Artificial%20Intelligence
 
-backend apps always do CRUD operations on DB
+Redis
+=======
+cache in memory data base
 
-/var/log/nginx/access.log
-/var/log/messages
+disk(HD) --> RAM --> App can access
 
-Java --> Maven --> pom.xml
-groupId, artifactId, version
+applications -> Database time taking process
 
-com.hdfc
-banking.savings.smsbanking
-1.0.0
+applications -> cache -> database --> store in cache --> show to user
 
-Java --> .java extension
-java code compile --> bytecode --> run bytecode/compiled code
+CM --> PA
 
-nodejs --> npm
+person --> PA --> CM
 
-maven --> java
+ctrl + ]
+quit
 
-mvn clean package --> clean previous installs and do the fresh packaging
-.jar --> packaging in java(bytecode)
-
-.java --> java source file extension
-.class --> java bytecode extension
-
-mvn compile --> compile the java source code and create bytecode in .class format in target folder
-mvn package --> pack the java class files into single file called shipping-<version>.jar
-
-maven life cycle --> clean compile test and package
-package == compile+test+package
-
-room --> DB server
-racks --> schema
-tables
-
-python
-file extension --> .py
-build tool --> pip
-build file --> requirements.txt
-
-install PL
-create one directory
