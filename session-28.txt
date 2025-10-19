@@ -1,5 +1,6 @@
-ansible configuration
+ansible configuration 
 ====================
+we can see different locations for config file--ansible.cfg
 1. ANSIBLE_CONFIG env variable
 2. pwd
 3. home directory
