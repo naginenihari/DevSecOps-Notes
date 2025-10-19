@@ -1,0 +1,66 @@
+  connect server:
+  
+  ansible all -i 98.80.13.36, -e ansible_user=ec2-user -e ansible_password=DevOps321 -m ping
+  here -i means invertory
+  here -m means module
+  ping connecting or not 
+  
+  install software:
+  
+ ansible all -i 98.80.13.36, -e ansible_user=ec2-user -e ansible_password=DevOps321 -b -m dnf -a "name=nginx status=installed"
+  
+  here -b means become sudo user
+  here -m means module
+  here -a means arguments
+  
+  start service
+
+ ansible all -i 98.80.13.36, -e ansible_user=ec2-user -e ansible_password=DevOps321 -b -m service -a "name=nginx status=started"
+  
+ start we are using service module here status: started/enabled/restarted
+ 
+we can do all at time by using ansible-playbook 
+playbook means list of tasks to be executed on the target server.
+
+ ansible-playbook -i invertory.ini -e ansible_user=ec2-user -e ansible_password=DevOps321 main.yaml
+
+
+
+single server creation:
+
+ansible-playbook -i inventory.ini 01.1-EC2-Route53-Record.yaml -e "instances=['catalogue']"
+
+two or more servers creation: 
+
+ansible-playbook -i inventory.ini 01.1-EC2-Route53-Record.yaml -e "instances=['mongodb','catalogue','redis','user','cart','mysql','shipping','rabbitmq','payment','frontend']"
+
+
+
+component creation or loading in ansible server:
+
+ansible-playbook -i inventory.ini main.yaml -e "component=mongodb"
+ansible-playbook -i inventory.ini main.yaml -e "component=catalogue"
+ansible-playbook -i inventory.ini main.yaml -e "component=redis"
+ansible-playbook -i inventory.ini main.yaml -e "component=user"
+ansible-playbook -i inventory.ini main.yaml -e "component=cart"
+ansible-playbook -i inventory.ini main.yaml -e "component=mysql"
+ansible-playbook -i inventory.ini main.yaml -e "component=shipping"
+ansible-playbook -i inventory.ini main.yaml -e "component=rabbitmq"
+ansible-playbook -i inventory.ini main.yaml -e "component=payment"
+ansible-playbook -i inventory.ini main.yaml -e "component=frontend"
+
+
+ansible-playbook -i inventory.ini main.yaml -e '{"components":["mongodb","catalogue","redis","user","cart","mysql","shipping","rabbitmq","payment","frontend"]}'
+
+
+MONGODB_HOST: "mongodb.naginenihariaws.store"
+CATALOGUE_HOST: "catalogue.naginenihariaws.store"
+CART_HOST: "cart.naginenihariaws.store"
+USER_HOST: "user.naginenihariaws.store"
+MYSQLDB_HOST: "mysql.naginenihariaws.store"
+RABBITMQDB_HOST: "rabbitmq.naginenihariaws.store"
+SHIPPING_HOST: "shipping.naginenihariaws.store"
+RADISDB_HOST: "redis.naginenihariaws.store"
+FRONTEND_HOST: "frontend.naginenihariaws.store"
+PAYMENT_HOST: "payment.naginenihariaws.store"
+

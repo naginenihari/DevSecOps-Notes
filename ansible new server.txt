@@ -1,0 +1,47 @@
+single server creation:
+
+ansible-playbook -i inventory.ini 01.1-EC2-Route53-Record.yaml -e "instances=['frontend']"
+
+two or more servers creation: 
+
+ansible-playbook -i inventory.ini 01.1-EC2-Route53-Record.yaml -e "instances=['mongodb','catalogue','redis','user','cart','mysql','shipping','rabbitmq','payment','frontend']"
+
+log_path = /var/log/roboshop/ansible.log
+
+touch -d 20251014 /var/log/roboshop/ansible.log
+
+
+component creation or loading:
+
+ansible-playbook -i inventory.ini main.yaml -e "component=mongodb"
+ansible-playbook -i inventory.ini main.yaml -e "component=catalogue"
+ansible-playbook -i inventory.ini main.yaml -e "component=redis"
+ansible-playbook -i inventory.ini main.yaml -e "component=user"
+ansible-playbook -i inventory.ini main.yaml -e "component=cart"
+ansible-playbook -i inventory.ini main.yaml -e "component=mysql"
+ansible-playbook -i inventory.ini main.yaml -e "component=shipping"
+ansible-playbook -i inventory.ini main.yaml -e "component=rabbitmq"
+ansible-playbook -i inventory.ini main.yaml -e "component=payment"
+ansible-playbook -i inventory.ini main.yaml -e "component=frontend"
+
+
+ansible-playbook -i inventory.ini main.yaml -e '{"components":["mongodb","catalogue","redis","user","cart","mysql","shipping","rabbitmq","payment","frontend"]}'
+
+
+ansible-playbook -i inventory.ini 01.1-EC2-Route53-Record.yaml -e "instances=['cart','mysql','shipping','rabbitmq','payment','frontend']"
+
+
+ansible-playbook -i inventory.ini main.yaml -e "component=cart"
+
+
+
+MONGODB_HOST: "mongodb.naginenihariaws.store"
+CATALOGUE_HOST: "catalogue.naginenihariaws.store"
+CART_HOST: "cart.naginenihariaws.store"
+USER_HOST: "user.naginenihariaws.store"
+MYSQLDB_HOST: "mysql.naginenihariaws.store"
+RABBITMQDB_HOST: "rabbitmq.naginenihariaws.store"
+SHIPPING_HOST: "shipping.naginenihariaws.store"
+RADISDB_HOST: "redis.naginenihariaws.store"
+FRONTEND_HOST: "frontend.naginenihariaws.store"
+PAYMENT_HOST: "payment.naginenihariaws.store"
